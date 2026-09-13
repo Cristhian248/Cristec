@@ -157,6 +157,12 @@
       .main-menu-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      .main-menu-grid .menu-card:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 8px);
+      }
     }
 
     .menu-card {
