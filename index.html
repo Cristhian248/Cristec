@@ -687,6 +687,7 @@
       text-align: center;
       outline: none;
       -moz-appearance: textfield;
+      appearance: none;
     }
 
     .counter-input::-webkit-outer-spin-button,
@@ -732,6 +733,19 @@
     .summary-item span.val {
       color: #ffffff;
       font-weight: 600;
+    }
+
+    .summary-item.estimated-price {
+      border-top: 1px solid rgba(0, 240, 255, 0.25);
+      color: var(--accent-cyan);
+      font-weight: 700;
+      margin-top: 8px;
+      padding-top: 16px;
+    }
+
+    .summary-item.estimated-price span.val {
+      color: var(--accent-cyan);
+      font-size: 1.05rem;
     }
 
     /* Botón WhatsApp */
@@ -819,6 +833,18 @@
         </div>
         <h3>Domótica / Automatización</h3>
         <p>Interruptores táctiles de cristal, control de AC / IR y asistentes de voz.</p>
+      </div>
+
+      <div class="menu-card" onclick="openView('precios')">
+        <div class="menu-icon">
+          <!-- Ícono de precios -->
+          <svg class="svg-icon" viewBox="0 0 24 24">
+            <path d="M12 1v22"></path>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <h3>Lista de Precios</h3>
+        <p>Consulta precios referenciales de instalaciones y soluciones inteligentes.</p>
       </div>
     </div>
 
@@ -1001,6 +1027,10 @@
       <div class="summary-item">
         <span>Cableado Requerido:</span>
         <span class="val" id="resumen-cableado-elec">No incluido</span>
+      </div>
+      <div class="summary-item estimated-price">
+        <span>Precio estimado de lo solicitado:</span>
+        <span class="val" id="resumen-precio-elec">Gs. 50.000</span>
       </div>
     </div>
 
@@ -1208,6 +1238,10 @@
         <span>Integración:</span>
         <span class="val" id="resumen-plataforma-auto">Ninguno</span>
       </div>
+      <div class="summary-item estimated-price">
+        <span>Precio estimado de lo solicitado:</span>
+        <span class="val" id="resumen-precio-auto">Gs. 120.000</span>
+      </div>
     </div>
 
     <!-- Botón WhatsApp Automatización -->
@@ -1217,6 +1251,69 @@
       </svg>
       <span>Solicitar Cotización</span>
     </button>
+  </div>
+
+  <!-- VISTA 4: LISTA DE PRECIOS -->
+  <div id="view-precios" class="view-screen hidden">
+    <button class="btn-back" onclick="openView('menu')">
+      <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Volver al Menú
+    </button>
+
+    <div class="step-block center-header">
+      <div class="section-title">Precios referenciales</div>
+      <div class="price-list">
+        <div class="price-item">
+          <div>
+            <h3>Punto de luz</h3>
+            <p>Instalación eléctrica básica</p>
+          </div>
+          <span class="price-value">Desde Gs. 50.000</span>
+        </div>
+        <div class="price-item">
+          <div>
+            <h3>Punto de enchufe</h3>
+            <p>Instalación de toma corriente</p>
+          </div>
+          <span class="price-value">Desde Gs. 50.000</span>
+        </div>
+        <div class="price-item">
+          <div>
+            <h3>Luz + enchufe</h3>
+            <p>Configuración de ambos elementos</p>
+          </div>
+          <span class="price-value">Desde Gs. 100.000</span>
+        </div>
+        <div class="price-item">
+          <div>
+            <h3>Interruptor táctil Wi-Fi</h3>
+            <p>Panel de cristal inteligente</p>
+          </div>
+          <span class="price-value">Desde Gs. 120.000</span>
+        </div>
+        <div class="price-item">
+          <div>
+            <h3>Control de aire / IR</h3>
+            <p>Control inteligente para AC</p>
+          </div>
+          <span class="price-value">Desde Gs. 150.000</span>
+        </div>
+        <div class="price-item">
+          <div>
+            <h3>Cableado por metro</h3>
+            <p>Material e instalación</p>
+          </div>
+          <span class="price-value">Desde Gs. 12.000</span>
+        </div>
+      </div>
+      <p class="price-note">Los precios pueden variar según materiales, cantidad de puntos y características del proyecto.</p>
+      <button class="btn-whatsapp" onclick="sendWhatsAppGeneral()">
+        <svg class="svg-icon" viewBox="0 0 24 24">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+        <span>Consultar precio exacto</span>
+      </button>
+    </div>
   </div>
 
 </div>
@@ -1400,6 +1497,12 @@
     } else {
       document.getElementById('resumen-cableado-elec').innerText = 'No incluido';
     }
+
+    const preciosPorModulo = configElec.tipoInstalacion === 'Ambos' ? [100000, 130000, 160000] : [50000, 100000, 150000];
+    const precioPorPlaca = preciosPorModulo[configElec.puntos - 1] || preciosPorModulo[0];
+    const precioCableado = configElec.cableadoEnabled ? configElec.cableadoMetros * 12000 : 0;
+    const precioElectrico = (configElec.puntosTotales * precioPorPlaca) + precioCableado;
+    document.getElementById('resumen-precio-elec').innerText = formatCurrency(precioElectrico);
   }
 
   function sendWhatsAppElec() {
@@ -1543,6 +1646,16 @@
     } else {
       document.getElementById('resumen-plataforma-auto').innerText = 'Ninguno';
     }
+
+    const preciosDomotica = [120000, 185000, 250000];
+    const precioPorModulo = preciosDomotica[configAuto.puntos - 1] || preciosDomotica[0];
+    const precioInterruptores = configAuto.puntosTotales * precioPorModulo;
+    const precioAC = configAuto.acEnabled ? configAuto.acQty * 150000 : 0;
+    document.getElementById('resumen-precio-auto').innerText = formatCurrency(precioInterruptores + precioAC);
+  }
+
+  function formatCurrency(amount) {
+    return `Gs. ${amount.toLocaleString('es-PY')}`;
   }
 
   function sendWhatsAppAuto() {
