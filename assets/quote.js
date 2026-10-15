@@ -188,55 +188,33 @@ function buildWhatsAppMessage(state) {
   const location = (cust.location || '').trim();
   const notes = (cust.notes || '').trim();
 
-  const lines = ['Hola *CRISTEC*, quisiera solicitar una cotización formal:', ''];
+  const lines = ['Hola CRISTEC, quisiera solicitar cotización:', ''];
 
-  if (customerName || location) {
-    lines.push('📋 *Datos del Solicitante:*');
-    if (customerName) lines.push('• *Cliente:* ' + customerName);
-    if (location) lines.push('• *Ubicación / Ciudad:* ' + location);
-    lines.push('');
-  }
+  if (customerName) lines.push('• Cliente: ' + customerName);
+  if (location) lines.push('• Ubicación: ' + location);
 
+  lines.push('• Solicitado:');
   if (calc.mode === 'electrica') {
-    lines.push('⚡ *Cotización Instalación Eléctrica:*');
-    lines.push('• *Habitaciones:* ' + calc.rooms);
-    lines.push('• *Cantidad de placas requeridas:* ' + calc.plateQty + ' placa(s)');
-    lines.push('• *Tipo de servicio:* ' + calc.tipo);
-    lines.push('• *Configuración por placa:* ' + calc.moduleDescription + ' (Color ' + (calc.color === 'black' ? 'Negro' : 'Blanco') + ')');
-    lines.push('• *Subtotal placas:* ' + formatCurrency(calc.platesSubtotal));
+    lines.push('  - ' + calc.plateQty + ' placa(s) de ' + calc.tipo + ' (' + calc.moduleDescription + ', color ' + (calc.color === 'black' ? 'Negro' : 'Blanco') + ')');
     if (calc.cableEnabled) {
-      lines.push('• *Cableado requerido:* ' + calc.cableMeters + ' metro(s) (' + formatCurrency(calc.wiringSubtotal) + ')');
-    } else {
-      lines.push('• *Cableado:* No requerido / Existente');
+      lines.push('  - Cableado: ' + calc.cableMeters + ' metro(s)');
     }
   } else {
-    lines.push('🏠 *Cotización Domótica / Automatización Smart Home:*');
-    lines.push('• *Habitaciones:* ' + calc.rooms);
-    lines.push('• *Cantidad de placas táctiles:* ' + calc.plateQty + ' placa(s) Wi-Fi (Cristal ' + (calc.color === 'white' ? 'Blanco' : 'Negro') + ')');
-    lines.push('• *Canales por placa:* ' + calc.switchDescription);
-    lines.push('• *Subtotal interruptores:* ' + formatCurrency(calc.platesSubtotal));
+    lines.push('  - ' + calc.plateQty + ' placa(s) Wi-Fi (' + calc.switchDescription + ', cristal ' + (calc.color === 'white' ? 'Blanco' : 'Negro') + ')');
     if (calc.acEnabled) {
-      lines.push('• *Control de Aire AC / IR:* ' + calc.acQty + ' equipo(s) (' + formatCurrency(calc.acSubtotal) + ')');
-    } else {
-      lines.push('• *Control AC / IR:* No incluido');
+      lines.push('  - Control AC / IR: ' + calc.acQty + ' equipo(s)');
     }
     if (calc.plataformas && calc.plataformas.length > 0) {
-      lines.push('• *Ecosistema previsto:* ' + calc.plataformas.join(', '));
+      lines.push('  - Ecosistema: ' + calc.plataformas.join(', '));
     }
   }
 
-  lines.push('');
-  lines.push('💰 *Presupuesto Estimado Total:* ' + formatCurrency(calc.total));
-
   if (notes) {
-    lines.push('');
-    lines.push('📝 *Notas adicionales:* ' + notes);
+    lines.push('• Notas: ' + notes);
   }
 
   lines.push('');
-  lines.push('📌 *Nota de transparencia:* Este monto es de carácter estimativo preliminar y está sujeto a relevamiento técnico y confirmación final de materiales en obra.');
-  lines.push('');
-  lines.push('Quedo a la espera de su respuesta. ¡Muchas gracias!');
+  lines.push('*Presupuesto:* ' + formatCurrency(calc.total));
 
   return lines.join('\n');
 }

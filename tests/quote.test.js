@@ -103,7 +103,7 @@ test('validateQuantity clamps values within finite positive bounds', () => {
   assert.equal(validateQuantity(null, 10, 500), 10);
 });
 
-test('buildWhatsAppMessage includes customer details, breakdown, total, and non-final disclaimer', () => {
+test('buildWhatsAppMessage includes customer details, requested items, and budget', () => {
   const state = {
     mode: 'electrica',
     customer: {
@@ -127,8 +127,8 @@ test('buildWhatsAppMessage includes customer details, breakdown, total, and non-
   assert.ok(msg.includes('Asunción'));
   assert.ok(msg.includes('3 placa(s)'));
   assert.ok(msg.includes('15 metro(s)'));
-  assert.ok(msg.includes('estimativo'));
-  assert.ok(msg.includes('sujeto a relevamiento técnico'));
+  assert.ok(msg.includes('Presupuesto:'));
+  assert.ok(msg.includes('Gs. 330.000'));
 });
 
 test('buildWhatsAppUrl uses official phone 595992067705 and encodes text safely', () => {
@@ -180,7 +180,8 @@ test('buildWhatsAppMessage with empty/blank customer falls back cleanly without 
     automatizacion: { puntosTotales: 2, puntos: 2, acEnabled: false }
   });
   assert.ok(msg.includes('CRISTEC'));
-  assert.ok(!msg.includes('• *Cliente:*'));
+  assert.ok(!msg.includes('Cliente:'));
   assert.ok(msg.includes('2 placa(s) Wi-Fi'));
-  assert.ok(msg.includes('estimativo preliminar'));
+  assert.ok(msg.includes('Presupuesto:'));
+  assert.ok(msg.includes('Gs. 370.000'));
 });
