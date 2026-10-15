@@ -12,8 +12,6 @@ Estudio visual de producto: navegación horizontal, superficies claras, placas r
 - Datos opcionales del cliente, borrador local, reinicio con confirmación e impresión / PDF.
 - Controles por teclado, etiquetas accesibles, reducción de movimiento y diseño móvil.
 
-Los valores originales se conservan: placas eléctricas Gs. 50.000 / 100.000 / 150.000; mixtas Gs. 100.000 / 130.000 / 160.000; domótica Gs. 120.000 / 185.000 / 250.000; cableado Gs. 12.000/m; control AC / IR Gs. 150.000/equipo. Son referencias, no presupuestos definitivos. La cantidad cotizada corresponde a placas con la misma configuración, no a habitaciones.
-
 ## Archivos
 - `index.html`: estructura y formularios.
 - `assets/styles.css`: composición, placas ilustrativas, móvil e impresión.
