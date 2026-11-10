@@ -47,7 +47,7 @@
       `;
     } else {
       // Electrical modular plate (standard 3-module 4x2 architectural frame)
-      const miniSocketHtml = '<div class="mini-slot mini-slot-socket"><div class="mini-socket-receptacle"><div class="mini-socket-holes"><span class="mini-pin"></span><span class="mini-pin"></span></div><span class="mini-ground"></span></div></div>';
+      const miniSocketHtml = '<div class="mini-slot mini-slot-socket"><div class="mini-socket-receptacle"><div class="mini-socket-holes"><span class="mini-universal-pin mini-pin"></span><span class="mini-universal-pin mini-pin"></span></div><span class="mini-ground"></span></div></div>';
       const miniSwitchHtml = '<div class="mini-slot mini-slot-switch"></div>';
       const miniBlankHtml = '<div class="mini-slot mini-slot-blank"></div>';
 
@@ -291,7 +291,7 @@
       `;
     } else {
       // Electrical modular plate (standard 3-module 4x2 architectural frame)
-      const detailSocketHtml = '<div class="module-slot mod-socket"><div class="socket-receptacle"><div class="socket-holes"><div class="hole-pin"></div><div class="hole-pin"></div></div><div class="hole-ground"></div></div></div>';
+      const detailSocketHtml = '<div class="module-slot mod-socket"><div class="socket-receptacle"><div class="socket-holes"><div class="hole-universal hole-pin"></div><div class="hole-universal hole-pin"></div></div><div class="hole-ground"></div></div></div>';
       const detailSwitchHtml = '<div class="module-slot mod-switch"><div class="mod-switch-indicator"></div></div>';
       const detailBlankHtml = '<div class="module-slot mod-blank"></div>';
 

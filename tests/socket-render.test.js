@@ -27,6 +27,8 @@ test('Socket CSS styles provide realistic 3D receptacle well and universal apert
   // Must not rely on text unicode dots '••'
   assert.ok(!storeCss.includes("content: '••'"), 'store.css must not use text unicode dots for socket card');
   assert.ok(stylesCss.includes('socket-receptacle'), 'styles.css must style realistic socket-receptacle');
+  assert.ok(stylesCss.includes('hole-universal'), 'styles.css styles universal combination aperture');
+  assert.ok(storeCss.includes('mini-universal-pin'), 'store.css styles mini universal combination pin');
   assert.ok(storeCss.includes('mini-socket-receptacle') || storeCss.includes('mini-slot-socket'), 'store.css has mini socket styling');
 });
 
