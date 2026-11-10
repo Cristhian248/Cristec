@@ -388,14 +388,63 @@
 .mini-slot-switch {
   border-right: 3px solid #8e9684;
 }
-.mini-slot-socket::after {
-  content: '••';
-  font-size: 14px;
-  color: #333d33;
-  letter-spacing: 2px;
+.mini-slot-blank {
+  background: #e9ece0;
+  opacity: 0.55;
+  border: 1px solid #cbcfc3;
 }
-.mini-black .mini-slot-socket::after {
-  color: #111;
+.mini-black .mini-slot-blank {
+  background: #252b25;
+  border-color: #363e36;
+}
+.mini-slot-socket {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mini-socket-receptacle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, #ffffff 0%, #e8ebe1 75%, #d5dad0 100%);
+  border: 1px solid #b8beb0;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.2), 0 1px 1px rgba(255,255,255,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.mini-black .mini-socket-receptacle {
+  background: radial-gradient(circle at 50% 35%, #3c443c 0%, #252b25 75%, #181d18 100%);
+  border-color: #404840;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.7);
+}
+.mini-socket-holes {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.mini-pin {
+  width: 2px;
+  height: 4.5px;
+  background: #182018;
+  border-radius: 1px;
+  box-shadow: inset 0 0.5px 1px rgba(0,0,0,0.9);
+}
+.mini-black .mini-pin {
+  background: #090d09;
+}
+.mini-ground {
+  width: 3.5px;
+  height: 2px;
+  background: #182018;
+  border-radius: 1px;
+  box-shadow: inset 0 0.5px 1px rgba(0,0,0,0.9);
+}
+.mini-black .mini-ground {
+  background: #090d09;
 }
 
 .mini-glass {

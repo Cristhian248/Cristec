@@ -61,7 +61,7 @@
     if (type === 'switch') {
       return '<div class="module-slot mod-switch" aria-label="Módulo de interruptor"><div class="mod-switch-indicator"></div></div>';
     } else if (type === 'socket') {
-      return '<div class="module-slot mod-socket" aria-label="Módulo de enchufe/toma"><div class="socket-holes"><div class="hole-pin"></div><div class="hole-pin"></div></div><div class="hole-ground"></div></div>';
+      return '<div class="module-slot mod-socket" aria-label="Módulo de tomacorriente"><div class="socket-receptacle"><div class="socket-holes"><div class="hole-pin"></div><div class="hole-pin"></div></div><div class="hole-ground"></div></div></div>';
     }
     return '<div class="module-slot mod-blank" aria-label="Tapa ciega / módulo vacío"></div>';
   }

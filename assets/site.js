@@ -46,20 +46,36 @@
         </div>
       `;
     } else {
-      // Electrical modular plate
+      // Electrical modular plate (standard 3-module 4x2 architectural frame)
+      const miniSocketHtml = '<div class="mini-slot mini-slot-socket"><div class="mini-socket-receptacle"><div class="mini-socket-holes"><span class="mini-pin"></span><span class="mini-pin"></span></div><span class="mini-ground"></span></div></div>';
+      const miniSwitchHtml = '<div class="mini-slot mini-slot-switch"></div>';
+      const miniBlankHtml = '<div class="mini-slot mini-slot-blank"></div>';
+
       let slotsHtml = '';
       if (product.kind === 'switch') {
-        slotsHtml = Array.from({ length: product.modules }, () => '<div class="mini-slot mini-slot-switch"></div>').join('');
+        if (product.modules === 1) {
+          slotsHtml = `${miniBlankHtml}${miniSwitchHtml}${miniBlankHtml}`;
+        } else if (product.modules === 2) {
+          slotsHtml = `${miniSwitchHtml}${miniBlankHtml}${miniSwitchHtml}`;
+        } else {
+          slotsHtml = `${miniSwitchHtml}${miniSwitchHtml}${miniSwitchHtml}`;
+        }
       } else if (product.kind === 'socket') {
-        slotsHtml = Array.from({ length: product.modules }, () => '<div class="mini-slot mini-slot-socket"></div>').join('');
+        if (product.modules === 1) {
+          slotsHtml = `${miniBlankHtml}${miniSocketHtml}${miniBlankHtml}`;
+        } else if (product.modules === 2) {
+          slotsHtml = `${miniSocketHtml}${miniBlankHtml}${miniSocketHtml}`;
+        } else {
+          slotsHtml = `${miniSocketHtml}${miniSocketHtml}${miniSocketHtml}`;
+        }
       } else {
         // Mixed
         if (product.modules === 1) {
-          slotsHtml = '<div class="mini-slot mini-slot-switch"></div><div class="mini-slot mini-slot-socket"></div>';
+          slotsHtml = `${miniSwitchHtml}${miniBlankHtml}${miniSocketHtml}`;
         } else if (product.modules === 2) {
-          slotsHtml = '<div class="mini-slot mini-slot-switch"></div><div class="mini-slot mini-slot-switch"></div><div class="mini-slot mini-slot-socket"></div>';
+          slotsHtml = `${miniSwitchHtml}${miniSwitchHtml}${miniSocketHtml}`;
         } else {
-          slotsHtml = '<div class="mini-slot mini-slot-switch"></div><div class="mini-slot mini-slot-socket"></div><div class="mini-slot mini-slot-socket"></div>';
+          slotsHtml = `${miniSwitchHtml}${miniSocketHtml}${miniSocketHtml}`;
         }
       }
       mediaHtml = `
@@ -274,18 +290,35 @@
         </div>
       `;
     } else {
+      // Electrical modular plate (standard 3-module 4x2 architectural frame)
+      const detailSocketHtml = '<div class="module-slot mod-socket"><div class="socket-receptacle"><div class="socket-holes"><div class="hole-pin"></div><div class="hole-pin"></div></div><div class="hole-ground"></div></div></div>';
+      const detailSwitchHtml = '<div class="module-slot mod-switch"><div class="mod-switch-indicator"></div></div>';
+      const detailBlankHtml = '<div class="module-slot mod-blank"></div>';
+
       let slotsHtml = '';
       if (product.kind === 'switch') {
-        slotsHtml = Array.from({ length: product.modules }, () => '<div class="module-slot mod-switch"><div class="mod-switch-indicator"></div></div>').join('');
+        if (product.modules === 1) {
+          slotsHtml = `${detailBlankHtml}${detailSwitchHtml}${detailBlankHtml}`;
+        } else if (product.modules === 2) {
+          slotsHtml = `${detailSwitchHtml}${detailBlankHtml}${detailSwitchHtml}`;
+        } else {
+          slotsHtml = `${detailSwitchHtml}${detailSwitchHtml}${detailSwitchHtml}`;
+        }
       } else if (product.kind === 'socket') {
-        slotsHtml = Array.from({ length: product.modules }, () => '<div class="module-slot mod-socket"><div class="socket-holes"><div class="hole-pin"></div><div class="hole-pin"></div></div><div class="hole-ground"></div></div>').join('');
+        if (product.modules === 1) {
+          slotsHtml = `${detailBlankHtml}${detailSocketHtml}${detailBlankHtml}`;
+        } else if (product.modules === 2) {
+          slotsHtml = `${detailSocketHtml}${detailBlankHtml}${detailSocketHtml}`;
+        } else {
+          slotsHtml = `${detailSocketHtml}${detailSocketHtml}${detailSocketHtml}`;
+        }
       } else {
         if (product.modules === 1) {
-          slotsHtml = '<div class="module-slot mod-switch"><div class="mod-switch-indicator"></div></div><div class="module-slot mod-socket"><div class="socket-holes"><div class="hole-pin"></div><div class="hole-pin"></div></div><div class="hole-ground"></div></div>';
+          slotsHtml = `${detailSwitchHtml}${detailBlankHtml}${detailSocketHtml}`;
         } else if (product.modules === 2) {
-          slotsHtml = '<div class="module-slot mod-switch"><div class="mod-switch-indicator"></div></div><div class="module-slot mod-switch"><div class="mod-switch-indicator"></div></div><div class="module-slot mod-socket"><div class="socket-holes"><div class="hole-pin"></div><div class="hole-pin"></div></div><div class="hole-ground"></div></div>';
+          slotsHtml = `${detailSwitchHtml}${detailSwitchHtml}${detailSocketHtml}`;
         } else {
-          slotsHtml = '<div class="module-slot mod-switch"><div class="mod-switch-indicator"></div></div><div class="module-slot mod-socket"><div class="socket-holes"><div class="hole-pin"></div><div class="hole-pin"></div></div><div class="hole-ground"></div></div><div class="module-slot mod-socket"><div class="socket-holes"><div class="hole-pin"></div><div class="hole-pin"></div></div><div class="hole-ground"></div></div>';
+          slotsHtml = `${detailSwitchHtml}${detailSocketHtml}${detailSocketHtml}`;
         }
       }
       galleryHtml = `
