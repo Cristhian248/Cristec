@@ -14,7 +14,7 @@ test('Price list is not mistaken for a domotics quotation', () => {
 });
 
 test('Quote has a dedicated print summary and polite live total', () => {
-  const html = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(__dirname, '../cotizador.html'), 'utf8');
   assert.ok(html.includes('id="print-customer"'));
   assert.match(html, /id="quote-total-val"[^>]*aria-live="polite"/);
 });

@@ -1,2 +1,5 @@
-cristec-mobile.png
+cristec-*.png
 cristec-print.pdf
+qa/
+node_modules/
+

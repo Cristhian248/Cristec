@@ -17,9 +17,10 @@ const path = require('node:path');
   function cdp(method,params={}) {return new Promise((resolve,reject)=>{const n=++id;const timer=setTimeout(()=>reject(new Error('CDP timeout '+method)),15000);pending.set(n,{resolve,reject,timer});ws.send(JSON.stringify({id:n,method,params}));});}
   async function js(expression) {const r=await cdp('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(JSON.stringify(r.exceptionDetails));return r.result.value;}
   const base=process.env.CR_SERVICE_URL || 'http://127.0.0.1:8765';
+  const startUrl = base.endsWith('.html') ? base : (base.replace(/\/+$/, '') + '/cotizador.html');
   try {
     await cdp('Page.enable'); await cdp('Runtime.enable');
-    await cdp('Page.navigate',{url:base});
+    await cdp('Page.navigate',{url:startUrl});
     for(let i=0;i<40;i++){if(await js('!!window.CristecQuote && !!document.querySelector("#btn-whatsapp-quote") && document.querySelector("#btn-whatsapp-quote").href.includes("phone=")'))break;await new Promise(r=>setTimeout(r,100));}
     await js('localStorage.clear(); location.reload()');
     for(let i=0;i<40;i++){await new Promise(r=>setTimeout(r,100));if(await js('!!document.querySelector("#btn-whatsapp-quote") && document.querySelector("#btn-whatsapp-quote").href.includes("phone=")'))break;}

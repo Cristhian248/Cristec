@@ -13,12 +13,20 @@ Estudio visual de producto: navegación horizontal, superficies claras, placas r
 - Controles por teclado, etiquetas accesibles, reducción de movimiento y diseño móvil.
 
 ## Archivos
-- `index.html`: estructura y formularios.
-- `assets/styles.css`: composición, placas ilustrativas, móvil e impresión.
-- `assets/quote.js`: cálculo, validación y mensajes.
-- `assets/app.js`: controles, vistas y persistencia.
-- `tests/*.test.js`: pruebas sin dependencias con Node.js.
-- `tests/browser-smoke.cjs`: comprobación opcional en Chrome vía CDP.
+- `index.html`: inicio de tienda con destacados, categorías y accesos rápidos.
+- `productos.html`: catálogo completo con buscador en vivo, filtros por categoría y ordenación.
+- `producto.html`: ficha técnica navegable con selector de acabado, especificaciones y pedido por WhatsApp.
+- `cotizador.html`: configurador original de instalaciones y cálculo detallado de presupuesto.
+- `contacto.html`: página de atención y líneas de contacto oficial.
+- `assets/catalog.js`: catálogo centralizado de 14 configuraciones con tarifas sincronizadas con el cotizador.
+- `assets/store.css`: estilos del catálogo comercial, barra superior, tarjetas y fichas.
+- `assets/site.js`: controlador de navegación, búsqueda reactiva, render de catálogo y vistas individuales.
+- `assets/styles.css`: estilos base y renderizado de placas modulares y domótica.
+- `assets/quote.js`: motor de cotizaciones, tarifas y reglas de negocio.
+- `assets/app.js`: controlador del cotizador y persistencia de proyecto.
+- `tests/*.test.js`: suite de pruebas unitarias y de integración en Node.js.
+- `tests/browser-smoke.cjs`: prueba de navegador real para el cotizador vía CDP.
+- `tests/browser-store-smoke.cjs`: prueba de navegador real para la tienda, catálogo y fichas.
 
 ## Abrir localmente
 Desde este directorio:

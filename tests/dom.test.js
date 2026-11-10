@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 test('index.html structure has all required semantics, ids, and accessible elements', () => {
-  const htmlPath = path.join(__dirname, '../index.html');
+  const htmlPath = path.join(__dirname, '../cotizador.html');
   const content = fs.readFileSync(htmlPath, 'utf8');
 
   // Verificación de recursos enlazados

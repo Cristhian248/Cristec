@@ -241,4 +241,5 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 if (typeof window !== 'undefined') {
   window.CristecQuote = quoteModule;
+  window.CRISTEC_QUOTE = quoteModule;
 }

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f1f0e9">
+<meta name="description" content="Configurá tu instalación eléctrica o domótica con CRISTEC. Elegí placas, acabados y adicionales, y consultá tu presupuesto por WhatsApp.">
+<title>CRISTEC — Tu instalación, a medida.</title>
+<link rel="stylesheet" href="assets/styles.css"><link rel="stylesheet" href="assets/store.css">
+</head>
+<body class="quote-page" data-page="cotizador">
+<a class="skip-link" href="#configuracion">Ir al configurador</a>
+<div class="utility-bar"><div class="shop-container"><span>Electricidad y domótica · Paraguay</span><a href="tel:+595992067705">+595 992 067705</a></div></div>
+<header class="shop-header"><div class="shop-container header-main">
+<a class="wordmark" href="index.html" aria-label="CRISTEC, inicio">CRIS<span>TEC</span><i aria-hidden="true">↗</i></a>
+<form class="shop-search" action="productos.html" role="search"><label class="sr-only" for="site-search">Buscar productos</label><input id="site-search" type="search" name="q" placeholder="¿Qué necesitás para tu proyecto?" maxlength="120"><button type="submit" aria-label="Buscar productos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button></form>
+<a class="header-quote" href="cotizador.html">Cotizá tu proyecto <span aria-hidden="true">↗</span></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="shop-nav">Menú <span aria-hidden="true">☰</span></button>
+</div><nav class="shop-nav shop-container" id="shop-nav" aria-label="Navegación principal">
+<a href="index.html" data-page-link="inicio">Inicio</a><a href="productos.html" data-page-link="productos">Todos los productos</a><a href="productos.html?categoria=electrica">Electricidad</a><a href="productos.html?categoria=domotica">Domótica</a><a href="productos.html?categoria=cableado">Cableado</a><a href="cotizador.html" data-page-link="cotizador" aria-current="page">Cotizador</a><a href="contacto.html" data-page-link="contacto">Contacto</a>
+</nav></header>
+<main>
+<section class="intro" aria-labelledby="page-title">
+<div><p class="eyebrow">CRISTEC / CONFIGURADOR DE INSTALACIONES</p><h1 id="page-title">Tu espacio.<br>Tu instalación.</h1></div>
+<div class="intro-note"><p>Desde la primera llave<br>hasta una casa conectada.</p><span>Elegí los detalles. Mirá cómo queda.<br>Consultá el presupuesto.</span></div>
+</section>
+<nav class="service-switch" aria-label="Elegí el servicio">
+<button type="button" data-nav-target="electrica" aria-pressed="true"><span class="nav-no">01</span> Eléctrica <span class="nav-arrow" aria-hidden="true">↗</span></button>
+<button type="button" data-nav-target="automatizacion" aria-pressed="false"><span class="nav-no">02</span> Domótica <span class="nav-arrow" aria-hidden="true">↗</span></button>
+<button type="button" data-nav-target="precios" aria-pressed="false"><span class="nav-no">03</span> Precios <span class="nav-arrow" aria-hidden="true">↗</span></button>
+</nav>
+<div class="product-studio">
+<div class="visual-column">
+<div class="product-canvas">
+<div class="canvas-caption"><span>VISTA DE REFERENCIA</span><span>CR / CONFIG.</span></div>
+<div data-view-panel="electrica" class="product-scene" aria-label="Vista previa de la placa eléctrica">
+<div class="scene-wall"><div id="plate-render-elec" class="mech-plate white-plate"><div class="mech-frame" id="plate-frame-elec"></div></div></div>
+<div class="scene-label"><span>Placa modular</span><span>Eléctrica / Tradicional</span></div>
+</div>
+<div data-view-panel="automatizacion" class="product-scene" style="display:none" aria-label="Vista previa del interruptor inteligente">
+<div class="scene-wall"><div id="switch-render-auto" class="switch-product black-glass"><span class="wifi-icon" aria-hidden="true">Wi-Fi</span><div class="rings-wrapper" id="rings-container-auto"></div><span class="device-brand">CRISTEC</span></div><div id="ac-render-auto" class="ac-controller-render" style="display:none"><span aria-hidden="true">⏻</span><small>IR</small></div></div>
+<div class="scene-label"><span id="stage-caption-auto">Placa Táctil Wi-Fi</span><span>Domótica / Conectada</span></div>
+</div>
+<div data-view-panel="precios" class="price-cover" style="display:none"><p>Una base clara<br>para tu proyecto.</p><span>Tarifas referenciales.<br>Presupuesto final sujeto a evaluación.</span></div>
+</div>
+<aside class="quotation-panel" aria-labelledby="panel-quote-title">
+<div class="quote-panel-title"><h2 id="panel-quote-title">Tu presupuesto</h2><span id="summary-mode-badge">Eléctrico</span></div>
+<div class="print-heading">CRISTEC · Tecnologías e Innovación<br>+595 992 067705</div><div class="print-customer" id="print-customer"></div>
+<div class="quote-total-line"><span>Estimado en guaraníes</span><div id="quote-total-val" aria-live="polite" aria-atomic="true">Gs. 50.000</div></div>
+<details class="quote-details"><summary>Ver desglose <span aria-hidden="true">+</span></summary><div id="breakdown-items-container" class="breakdown-list"></div></details>
+<div class="quote-actions"><a id="btn-whatsapp-quote" class="primary-action" href="#" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗</span></a><div class="secondary-actions"><button id="btn-print-quote" type="button">Imprimir / PDF</button><button id="btn-reset-quote" type="button">Empezar de nuevo</button></div></div>
+</aside>
+</div>
+<div class="configuration" id="configuracion" tabindex="-1">
+<section data-view-panel="electrica" aria-labelledby="electrica-heading">
+<div class="config-heading"><p class="eyebrow">01 / ELÉCTRICA</p><h2 id="electrica-heading">Lo esencial,<br>bien resuelto.</h2><p>Armá una placa y definí cuántas necesitás.<br>La configuración se aplica a todas las unidades.</p></div>
+<fieldset class="config-section"><legend><span>01</span> ¿Qué va en la placa?</legend>
+<div class="options-grid" id="tipo-elec-group"><button type="button" class="option-btn" data-option-val="Interruptores" aria-pressed="false"><span class="option-title">Luz</span><span class="option-price-hint">Interruptores</span></button><button type="button" class="option-btn" data-option-val="Enchufes" aria-pressed="false"><span class="option-title">Tomas</span><span class="option-price-hint">Enchufes</span></button><button type="button" class="option-btn" data-option-val="Ambos" aria-pressed="false"><span class="option-title">Mixta</span><span class="option-price-hint">Luz + enchufes</span></button></div>
+</fieldset>
+<fieldset class="config-section"><legend><span>02</span> Composición y acabado</legend>
+<div class="options-grid" id="modulos-elec-group"><button type="button" class="option-btn" data-option-val="1" aria-pressed="false"><span class="option-title">1 módulo</span><span class="option-price-hint">Gs. 50.000 / placa</span></button><button type="button" class="option-btn" data-option-val="2" aria-pressed="false"><span class="option-title">2 módulos</span><span class="option-price-hint">Gs. 100.000 / placa</span></button><button type="button" class="option-btn" data-option-val="3" aria-pressed="false"><span class="option-title">3 módulos</span><span class="option-price-hint">Gs. 150.000 / placa</span></button></div><div class="color-toggle-group"><button type="button" id="el-color-white" class="color-choice-btn" aria-pressed="false"><span class="color-swatch white"></span>Blanco</button><button type="button" id="el-color-black" class="color-choice-btn" aria-pressed="false"><span class="color-swatch black"></span>Negro</button></div>
+</fieldset>
+<fieldset class="config-section"><legend><span>03</span> La escala del proyecto</legend><div class="fields-grid-2">
+<div class="field-group"><label for="el-plates-val">Placas</label><div class="counter-row"><button type="button" id="el-plates-dec" aria-label="Disminuir placas">−</button><input type="number" id="el-plates-val" value="1" min="1" max="500" inputmode="numeric"><button type="button" id="el-plates-inc" aria-label="Aumentar placas">+</button></div></div><div class="field-group"><label for="el-rooms-val">Habitaciones</label><div class="counter-row"><button type="button" id="el-rooms-dec" aria-label="Disminuir habitaciones">−</button><input type="number" id="el-rooms-val" value="1" min="1" max="50" inputmode="numeric"><button type="button" id="el-rooms-inc" aria-label="Aumentar habitaciones">+</button></div></div>
+</div><p class="field-note">Las habitaciones describen el proyecto. El precio se calcula por placa.</p></fieldset>
+<fieldset class="config-section"><legend><span>04</span> ¿Necesitás cableado?</legend><label class="checkbox-card"><span><strong>Agregar cableado</strong><small>Gs. 12.000 por metro · material e instalación</small></span><input type="checkbox" id="el-cable-toggle"></label><div id="el-cable-section" style="display:none">
+<div class="field-group"><label for="el-cable-val">Metros de cableado</label><div class="counter-row"><button type="button" id="el-cable-dec" aria-label="Disminuir metros de cableado">−5</button><input type="number" id="el-cable-val" value="10" min="1" max="1000" inputmode="numeric"><button type="button" id="el-cable-inc" aria-label="Aumentar metros de cableado">+5</button></div></div>
+</div></fieldset>
+</section>
+<section data-view-panel="automatizacion" aria-labelledby="auto-heading" style="display:none">
+<div class="config-heading"><p class="eyebrow">02 / DOMÓTICA</p><h2 id="auto-heading">Un toque.<br>Más posibilidades.</h2><p>Configurá interruptores táctiles y controles.<br>Compatibilidad a confirmar según el equipo.</p></div>
+<fieldset class="config-section"><legend><span>01</span> Canales y acabado</legend>
+<div class="options-grid" id="canales-auto-group"><button type="button" class="option-btn" data-option-val="1" aria-pressed="false"><span class="option-title">1 canal</span><span class="option-price-hint">Gs. 120.000 / placa</span></button><button type="button" class="option-btn" data-option-val="2" aria-pressed="false"><span class="option-title">2 canales</span><span class="option-price-hint">Gs. 185.000 / placa</span></button><button type="button" class="option-btn" data-option-val="3" aria-pressed="false"><span class="option-title">3 canales</span><span class="option-price-hint">Gs. 250.000 / placa</span></button></div><div class="color-toggle-group"><button type="button" id="auto-color-white" class="color-choice-btn" aria-pressed="false"><span class="color-swatch white"></span>Blanco cristal</button><button type="button" id="auto-color-black" class="color-choice-btn" aria-pressed="false"><span class="color-swatch black"></span>Negro cristal</button></div>
+</fieldset>
+<fieldset class="config-section"><legend><span>02</span> ¿Cuántos espacios?</legend><div class="fields-grid-2">
+<div class="field-group"><label for="auto-plates-val">Placas inteligentes</label><div class="counter-row"><button type="button" id="auto-plates-dec" aria-label="Disminuir placas inteligentes">−</button><input type="number" id="auto-plates-val" value="1" min="1" max="500" inputmode="numeric"><button type="button" id="auto-plates-inc" aria-label="Aumentar placas inteligentes">+</button></div></div><div class="field-group"><label for="auto-rooms-val">Habitaciones</label><div class="counter-row"><button type="button" id="auto-rooms-dec" aria-label="Disminuir habitaciones">−</button><input type="number" id="auto-rooms-val" value="1" min="1" max="50" inputmode="numeric"><button type="button" id="auto-rooms-inc" aria-label="Aumentar habitaciones">+</button></div></div>
+</div><p class="field-note">El cálculo es por placa, no por habitación.</p></fieldset>
+<fieldset class="config-section"><legend><span>03</span> Control del aire acondicionado</legend><label class="checkbox-card"><span><strong>Agregar control AC / IR</strong><small>Gs. 150.000 por equipo</small></span><input type="checkbox" id="auto-ac-toggle"></label><div id="auto-ac-section" style="display:none">
+<div class="field-group"><label for="auto-ac-val">Equipos de aire</label><div class="counter-row"><button type="button" id="auto-ac-dec" aria-label="Disminuir equipos de aire">−</button><input type="number" id="auto-ac-val" value="1" min="1" max="50" inputmode="numeric"><button type="button" id="auto-ac-inc" aria-label="Aumentar equipos de aire">+</button></div></div>
+</div></fieldset>
+<fieldset class="config-section"><legend><span>04</span> ¿Cómo preferís controlarlo?</legend><div class="platform-options">
+<button type="button" class="platform-btn" data-platform-name="Amazon Alexa" aria-pressed="false">Alexa <span>+</span></button><button type="button" class="platform-btn" data-platform-name="Google Home" aria-pressed="false">Google Home <span>+</span></button><button type="button" class="platform-btn" data-platform-name="App Móvil" aria-pressed="false">App móvil <span>+</span></button>
+</div><p class="field-note">Elegí una o varias opciones. Asistentes y dispositivos adicionales no se cotizan aquí.</p></fieldset>
+</section>
+<section data-view-panel="precios" style="display:none" aria-labelledby="prices-heading"><div class="config-heading"><p class="eyebrow">03 / REFERENCIAS</p><h2 id="prices-heading">Los números,<br>sobre la mesa.</h2><p>Valores iniciales para planificar tu instalación.<br>Elegí un servicio para calcular tu proyecto.</p></div><dl class="price-list">
+<div><dt>Punto de luz<small>Instalación eléctrica básica</small></dt><dd>Desde Gs. 50.000</dd></div>
+<div><dt>Enchufe<small>Toma de corriente</small></dt><dd>Desde Gs. 50.000</dd></div>
+<div><dt>Placa mixta<small>Luz + enchufe</small></dt><dd>Desde Gs. 100.000</dd></div>
+<div><dt>Interruptor Wi-Fi<small>Panel táctil de cristal</small></dt><dd>Desde Gs. 120.000</dd></div>
+<div><dt>Control AC / IR<small>Por equipo</small></dt><dd>Gs. 150.000</dd></div>
+<div><dt>Cableado<small>Por metro · material e instalación</small></dt><dd>Gs. 12.000</dd></div>
+</dl><p class="field-note">Los valores pueden variar según materiales y características de la instalación. Consultá el alcance antes de confirmar.</p></section>
+<details class="project-details"><summary>Agregá los datos de tu proyecto <span>Opcional +</span></summary><div class="project-fields"><label for="input-cust-name">Nombre o empresa</label><input id="input-cust-name" type="text" maxlength="100" autocomplete="name" placeholder="¿A nombre de quién cotizamos?"><label for="input-cust-location">Ciudad / ubicación</label><input id="input-cust-location" type="text" maxlength="100" autocomplete="address-level2" placeholder="¿Dónde es la instalación?"><label for="input-cust-notes">Algo más que debamos saber</label><textarea id="input-cust-notes" maxlength="500" rows="3" placeholder="Tipo de obra, detalles o consultas..."></textarea><p class="field-note">El borrador se guarda en este navegador. Los datos se comparten cuando enviás el mensaje por WhatsApp.</p></div></details>
+</div></div>
+</main>
+<footer class="site-footer"><a class="wordmark" href="./">CRIS<span>TEC</span></a><span>Electricidad y domótica · Paraguay</span><a href="tel:+595992067705">+595 992 067705 ↗</a></footer>
+<div class="mobile-floating-bar"><div><span>Estimado</span><strong id="mobile-floating-total">Gs. 50.000</strong></div><a id="btn-whatsapp-mobile" href="#" target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">↗</span></a></div>
+<div id="toast-notification" role="status" aria-live="polite"></div>
+<script src="assets/quote.js"></script><script src="assets/app.js"></script>
+<script src="assets/site.js"></script></body></html>
