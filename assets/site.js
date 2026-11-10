@@ -45,6 +45,13 @@
           <span>220V // CABLE</span>
         </div>
       `;
+    } else if (product.kind === 'socket') {
+      // Real universal binorma socket plate
+      mediaHtml = `
+        <div style="height:144px;display:flex;align-items:center;justify-content:center;">
+          <img src="assets/images/placa-toma-${product.modules}-white.svg" alt="${product.title}" class="socket-card-vector" style="width:90px;height:144px;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.12));">
+        </div>
+      `;
     } else {
       // Electrical modular plate (standard 3-module 4x2 architectural frame)
       const miniSocketHtml = '<div class="mini-slot mini-slot-socket"><div class="mini-socket-receptacle"><div class="mini-socket-holes"><span class="mini-universal-pin mini-pin"></span><span class="mini-universal-pin mini-pin"></span></div><span class="mini-ground"></span></div></div>';
@@ -289,6 +296,18 @@
           <span style="font:12px monospace;color:var(--muted);letter-spacing:2px;">CONDUCTOR NORMALIZADO 220V</span>
         </div>
       `;
+    } else if (product.kind === 'socket') {
+      // Real universal binorma socket plate
+      galleryHtml = `
+        <div id="detail-plate-preview" class="mech-plate white-plate" style="transform:none;width:170px;height:272px;background:none;border:none;box-shadow:none;padding:0;display:flex;align-items:center;justify-content:center;">
+          <img id="detail-socket-img" src="assets/images/placa-toma-${product.modules}-white.svg" alt="${product.title}" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 28px rgba(0,0,0,0.22));">
+        </div>
+        <div style="margin-top:20px;display:flex;gap:10px;align-items:center;">
+          <span style="font-size:12px;color:var(--muted);">Color de la placa:</span>
+          <button type="button" id="btn-color-white" style="background:#f7f7f3;color:#222;border:1px solid #ccc;padding:4px 10px;font-size:11px;border-radius:3px;">Blanco</button>
+          <button type="button" id="btn-color-black" style="background:#1a1f1b;color:#fff;border:1px solid #333;padding:4px 10px;font-size:11px;border-radius:3px;">Negro</button>
+        </div>
+      `;
     } else {
       // Electrical modular plate (standard 3-module 4x2 architectural frame)
       const detailSocketHtml = '<div class="module-slot mod-socket"><div class="socket-receptacle"><div class="socket-holes"><div class="hole-universal hole-pin"></div><div class="hole-universal hole-pin"></div></div><div class="hole-ground"></div></div></div>';
@@ -400,9 +419,13 @@
     const btnBlack = document.getElementById('btn-color-black');
     const platePreview = document.getElementById('detail-plate-preview');
     const touchPreview = document.getElementById('detail-touch-preview');
+    const socketImg = document.getElementById('detail-socket-img');
 
     if (btnWhite && btnBlack) {
       btnWhite.addEventListener('click', function () {
+        if (socketImg) {
+          socketImg.src = `assets/images/placa-toma-${product.modules}-white.svg`;
+        }
         if (platePreview) {
           platePreview.classList.remove('black-plate');
           platePreview.classList.add('white-plate');
@@ -413,6 +436,9 @@
         }
       });
       btnBlack.addEventListener('click', function () {
+        if (socketImg) {
+          socketImg.src = `assets/images/placa-toma-${product.modules}-black.svg`;
+        }
         if (platePreview) {
           platePreview.classList.remove('white-plate');
           platePreview.classList.add('black-plate');

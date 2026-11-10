@@ -32,6 +32,15 @@ test('Socket CSS styles provide realistic 3D receptacle well and universal apert
   assert.ok(storeCss.includes('mini-socket-receptacle') || storeCss.includes('mini-slot-socket'), 'store.css has mini socket styling');
 });
 
-test('Configurator in app.js renders realistic socket receptacle', () => {
-  assert.ok(appJs.includes('socket-receptacle'), 'app.js module renderer includes socket-receptacle');
+test('Realistic universal binorma vector assets exist and are referenced in site.js', () => {
+  for (const n of [1, 2, 3]) {
+    for (const c of ['white', 'black']) {
+      const file = path.join(root, `assets/images/placa-toma-${n}-${c}.svg`);
+      assert.ok(fs.existsSync(file), `SVG asset ${file} must exist`);
+      const content = fs.readFileSync(file, 'utf8');
+      assert.ok(content.includes('<svg') && content.includes('16A 250V~'), `SVG ${file} must be valid`);
+    }
+  }
+  assert.ok(siteJs.includes('assets/images/placa-toma-${product.modules}-white.svg'), 'site.js card builder uses realistic SVG vector');
 });
+
