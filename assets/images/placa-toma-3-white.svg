@@ -1,94 +1,113 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 320" width="100%" height="100%">
   <defs>
     <filter id="plate-shadow" x="-15%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="rgba(0,0,0,0.18)"/>
+      <feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="rgba(0,0,0,0.14)"/>
     </filter>
-    <linearGradient id="plate-bevel" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="plate-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#dde2d5"/>
-    </linearGradient>
-    <linearGradient id="plate-face" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#fafbf8"/>
-      <stop offset="100%" stop-color="#eff2e8"/>
-    </linearGradient>
-    <linearGradient id="brass" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#8d6d27"/>
-      <stop offset="50%" stop-color="#dcb158"/>
-      <stop offset="100%" stop-color="#8d6d27"/>
+      <stop offset="100%" stop-color="#d6dad2"/>
     </linearGradient>
   </defs>
 
-  <!-- Placa 4x2 cuerpo principal -->
-  <rect x="6" y="6" width="188" height="308" rx="16" fill="url(#plate-bevel)" filter="url(#plate-shadow)" stroke="#cdd3c4" stroke-width="1.2"/>
-  <rect x="10" y="10" width="180" height="300" rx="12" fill="url(#plate-face)"/>
+  <!-- Placa exterior 4x2 arquitectónica -->
+  <rect x="10" y="10" width="180" height="300" rx="18" fill="url(#plate-grad)" filter="url(#plate-shadow)" stroke="#cfd4cb" stroke-width="1"/>
+  <!-- Cara frontal de la placa con relieve suave -->
+  <rect x="14" y="14" width="172" height="292" rx="15" fill="#f8f9fa"/>
 
-  <!-- Chasis / marco porta-módulos interior 4x2 -->
-  <rect x="22" y="20" width="156" height="280" rx="7" fill="#e2e7dc" stroke="#c2c9ba" stroke-width="1"/>
+  <!-- Chasis interior porta-módulos -->
+  <rect x="24" y="24" width="152" height="272" rx="10" fill="none" stroke="#cfd4cb" stroke-width="0.8" opacity="0.6"/>
 
-  <g>
-    <rect x="28" y="28" width="144" height="82" rx="5" fill="#fbfcf9" stroke="#ccd3c4" stroke-width="1.2"/>
-    <rect x="34" y="34" width="132" height="70" rx="8" fill="#f2f5ec" stroke="#dbe1d3" stroke-width="0.8"/>
-    <!-- Ranura Izquierda (Universal: plana vertical + redonda centro) -->
-    <g transform="translate(69, 63)">
-      <path d="M-3,-15 h6 v6.5 c3,1.8 4.8,4.8 4.8,8.5 c0,3.7 -1.8,6.7 -4.8,8.5 v6.5 h-6 v-5.5 c-3.8,-1.6 -6.5,-5.2 -6.5,-9.5 c0,-4.3 2.7,-7.9 6.5,-9.5 z" fill="#070a07"/>
-      <rect x="-1.5" y="-13" width="2" height="26" fill="url(#brass)" opacity="0.75"/>
-      <circle cx="-1.5" cy="0" r="3.5" fill="url(#brass)" opacity="0.85"/>
+  <!-- Receptáculo tomacorriente en cy=72 -->
+  <g class="outlet-module">
+    <!-- Marco / módulo individual -->
+    <rect x="30" y="32" width="140" height="80" rx="8" fill="#ffffff" stroke="#d5dad0" stroke-width="1"/>
+    <!-- Cavidad rebajada suave del enchufe (receptáculo redondeado) -->
+    <rect x="42" y="39" width="116" height="66" rx="14" fill="#eef1ea" stroke="#d5dad0" stroke-width="0.7"/>
+
+    <!-- Ranura izquierda (Neutro / Espiga vertical con centro redondo universal) -->
+    <g>
+      <path d="M 71,60 v 24 a 3,3 0 0,0 6,0 v -24 a 3,3 0 0,0 -6,0 Z" fill="#111311"/>
+      <circle cx="74" cy="72" r="5.2" fill="#111311"/>
+      <rect x="73" y="63" width="2" height="18" fill="#755a29" opacity="0.65" rx="1"/>
     </g>
-    <!-- Ranura Derecha (Universal: plana vertical + redonda centro) -->
-    <g transform="translate(131, 63)">
-      <path d="M-3,-15 h6 v5.5 c3.8,1.6 6.5,5.2 6.5,9.5 c0,4.3 -2.7,7.9 -6.5,9.5 v5.5 h-6 v-6.5 c-3,-1.8 -4.8,-4.8 -4.8,-8.5 c0,-3.7 1.8,-6.7 4.8,-8.5 z" fill="#070a07"/>
-      <rect x="-0.5" y="-13" width="2" height="26" fill="url(#brass)" opacity="0.75"/>
-      <circle cx="1.5" cy="0" r="3.5" fill="url(#brass)" opacity="0.85"/>
+
+    <!-- Ranura derecha (Fase / Espiga vertical con centro redondo universal) -->
+    <g>
+      <path d="M 123,60 v 24 a 3,3 0 0,0 6,0 v -24 a 3,3 0 0,0 -6,0 Z" fill="#111311"/>
+      <circle cx="126" cy="72" r="5.2" fill="#111311"/>
+      <rect x="125" y="63" width="2" height="18" fill="#755a29" opacity="0.65" rx="1"/>
     </g>
-    <!-- Puesta a tierra (Arco / U estándar) -->
-    <g transform="translate(100, 88)">
-      <path d="M-5,-5.5 c0,-3.2 2.2,-5.5 5,-5.5 c2.8,0 5,2.3 5,5.5 v5.5 c0,1.2 -1,2.2 -2.2,2.2 h-5.6 c-1.2,0 -2.2,-1 -2.2,-2.2 z" fill="#070a07"/>
-      <circle cx="0" cy="-2.5" r="2.8" fill="url(#brass)" opacity="0.7"/>
+
+    <!-- Puesta a tierra central (Arco semicircular) -->
+    <g>
+      <path d="M 95,89 h 10 v 5 a 5,5 0 0,1 -10,0 Z" fill="#111311"/>
+      <circle cx="100" cy="89" r="4" fill="#111311"/>
+      <circle cx="100" cy="89" r="2.2" fill="#755a29" opacity="0.65"/>
     </g>
-    <text x="100" y="46" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="5.5" font-weight="600" fill="#9fa796" letter-spacing="1">16A 250V~</text>
+
+    <!-- Marcado técnico discreto estampado -->
+    <text x="100" y="52" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="4.5" font-weight="600" fill="#adb3a6" letter-spacing="0.8" opacity="0.6">16A 250V~</text>
   </g>
-  <g>
-    <rect x="28" y="119" width="144" height="82" rx="5" fill="#fbfcf9" stroke="#ccd3c4" stroke-width="1.2"/>
-    <rect x="34" y="125" width="132" height="70" rx="8" fill="#f2f5ec" stroke="#dbe1d3" stroke-width="0.8"/>
-    <!-- Ranura Izquierda (Universal: plana vertical + redonda centro) -->
-    <g transform="translate(69, 154)">
-      <path d="M-3,-15 h6 v6.5 c3,1.8 4.8,4.8 4.8,8.5 c0,3.7 -1.8,6.7 -4.8,8.5 v6.5 h-6 v-5.5 c-3.8,-1.6 -6.5,-5.2 -6.5,-9.5 c0,-4.3 2.7,-7.9 6.5,-9.5 z" fill="#070a07"/>
-      <rect x="-1.5" y="-13" width="2" height="26" fill="url(#brass)" opacity="0.75"/>
-      <circle cx="-1.5" cy="0" r="3.5" fill="url(#brass)" opacity="0.85"/>
+  <!-- Receptáculo tomacorriente en cy=160 -->
+  <g class="outlet-module">
+    <!-- Marco / módulo individual -->
+    <rect x="30" y="120" width="140" height="80" rx="8" fill="#ffffff" stroke="#d5dad0" stroke-width="1"/>
+    <!-- Cavidad rebajada suave del enchufe (receptáculo redondeado) -->
+    <rect x="42" y="127" width="116" height="66" rx="14" fill="#eef1ea" stroke="#d5dad0" stroke-width="0.7"/>
+
+    <!-- Ranura izquierda (Neutro / Espiga vertical con centro redondo universal) -->
+    <g>
+      <path d="M 71,148 v 24 a 3,3 0 0,0 6,0 v -24 a 3,3 0 0,0 -6,0 Z" fill="#111311"/>
+      <circle cx="74" cy="160" r="5.2" fill="#111311"/>
+      <rect x="73" y="151" width="2" height="18" fill="#755a29" opacity="0.65" rx="1"/>
     </g>
-    <!-- Ranura Derecha (Universal: plana vertical + redonda centro) -->
-    <g transform="translate(131, 154)">
-      <path d="M-3,-15 h6 v5.5 c3.8,1.6 6.5,5.2 6.5,9.5 c0,4.3 -2.7,7.9 -6.5,9.5 v5.5 h-6 v-6.5 c-3,-1.8 -4.8,-4.8 -4.8,-8.5 c0,-3.7 1.8,-6.7 4.8,-8.5 z" fill="#070a07"/>
-      <rect x="-0.5" y="-13" width="2" height="26" fill="url(#brass)" opacity="0.75"/>
-      <circle cx="1.5" cy="0" r="3.5" fill="url(#brass)" opacity="0.85"/>
+
+    <!-- Ranura derecha (Fase / Espiga vertical con centro redondo universal) -->
+    <g>
+      <path d="M 123,148 v 24 a 3,3 0 0,0 6,0 v -24 a 3,3 0 0,0 -6,0 Z" fill="#111311"/>
+      <circle cx="126" cy="160" r="5.2" fill="#111311"/>
+      <rect x="125" y="151" width="2" height="18" fill="#755a29" opacity="0.65" rx="1"/>
     </g>
-    <!-- Puesta a tierra (Arco / U estándar) -->
-    <g transform="translate(100, 179)">
-      <path d="M-5,-5.5 c0,-3.2 2.2,-5.5 5,-5.5 c2.8,0 5,2.3 5,5.5 v5.5 c0,1.2 -1,2.2 -2.2,2.2 h-5.6 c-1.2,0 -2.2,-1 -2.2,-2.2 z" fill="#070a07"/>
-      <circle cx="0" cy="-2.5" r="2.8" fill="url(#brass)" opacity="0.7"/>
+
+    <!-- Puesta a tierra central (Arco semicircular) -->
+    <g>
+      <path d="M 95,177 h 10 v 5 a 5,5 0 0,1 -10,0 Z" fill="#111311"/>
+      <circle cx="100" cy="177" r="4" fill="#111311"/>
+      <circle cx="100" cy="177" r="2.2" fill="#755a29" opacity="0.65"/>
     </g>
-    <text x="100" y="137" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="5.5" font-weight="600" fill="#9fa796" letter-spacing="1">16A 250V~</text>
+
+    <!-- Marcado técnico discreto estampado -->
+    <text x="100" y="140" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="4.5" font-weight="600" fill="#adb3a6" letter-spacing="0.8" opacity="0.6">16A 250V~</text>
   </g>
-  <g>
-    <rect x="28" y="210" width="144" height="82" rx="5" fill="#fbfcf9" stroke="#ccd3c4" stroke-width="1.2"/>
-    <rect x="34" y="216" width="132" height="70" rx="8" fill="#f2f5ec" stroke="#dbe1d3" stroke-width="0.8"/>
-    <!-- Ranura Izquierda (Universal: plana vertical + redonda centro) -->
-    <g transform="translate(69, 245)">
-      <path d="M-3,-15 h6 v6.5 c3,1.8 4.8,4.8 4.8,8.5 c0,3.7 -1.8,6.7 -4.8,8.5 v6.5 h-6 v-5.5 c-3.8,-1.6 -6.5,-5.2 -6.5,-9.5 c0,-4.3 2.7,-7.9 6.5,-9.5 z" fill="#070a07"/>
-      <rect x="-1.5" y="-13" width="2" height="26" fill="url(#brass)" opacity="0.75"/>
-      <circle cx="-1.5" cy="0" r="3.5" fill="url(#brass)" opacity="0.85"/>
+  <!-- Receptáculo tomacorriente en cy=248 -->
+  <g class="outlet-module">
+    <!-- Marco / módulo individual -->
+    <rect x="30" y="208" width="140" height="80" rx="8" fill="#ffffff" stroke="#d5dad0" stroke-width="1"/>
+    <!-- Cavidad rebajada suave del enchufe (receptáculo redondeado) -->
+    <rect x="42" y="215" width="116" height="66" rx="14" fill="#eef1ea" stroke="#d5dad0" stroke-width="0.7"/>
+
+    <!-- Ranura izquierda (Neutro / Espiga vertical con centro redondo universal) -->
+    <g>
+      <path d="M 71,236 v 24 a 3,3 0 0,0 6,0 v -24 a 3,3 0 0,0 -6,0 Z" fill="#111311"/>
+      <circle cx="74" cy="248" r="5.2" fill="#111311"/>
+      <rect x="73" y="239" width="2" height="18" fill="#755a29" opacity="0.65" rx="1"/>
     </g>
-    <!-- Ranura Derecha (Universal: plana vertical + redonda centro) -->
-    <g transform="translate(131, 245)">
-      <path d="M-3,-15 h6 v5.5 c3.8,1.6 6.5,5.2 6.5,9.5 c0,4.3 -2.7,7.9 -6.5,9.5 v5.5 h-6 v-6.5 c-3,-1.8 -4.8,-4.8 -4.8,-8.5 c0,-3.7 1.8,-6.7 4.8,-8.5 z" fill="#070a07"/>
-      <rect x="-0.5" y="-13" width="2" height="26" fill="url(#brass)" opacity="0.75"/>
-      <circle cx="1.5" cy="0" r="3.5" fill="url(#brass)" opacity="0.85"/>
+
+    <!-- Ranura derecha (Fase / Espiga vertical con centro redondo universal) -->
+    <g>
+      <path d="M 123,236 v 24 a 3,3 0 0,0 6,0 v -24 a 3,3 0 0,0 -6,0 Z" fill="#111311"/>
+      <circle cx="126" cy="248" r="5.2" fill="#111311"/>
+      <rect x="125" y="239" width="2" height="18" fill="#755a29" opacity="0.65" rx="1"/>
     </g>
-    <!-- Puesta a tierra (Arco / U estándar) -->
-    <g transform="translate(100, 270)">
-      <path d="M-5,-5.5 c0,-3.2 2.2,-5.5 5,-5.5 c2.8,0 5,2.3 5,5.5 v5.5 c0,1.2 -1,2.2 -2.2,2.2 h-5.6 c-1.2,0 -2.2,-1 -2.2,-2.2 z" fill="#070a07"/>
-      <circle cx="0" cy="-2.5" r="2.8" fill="url(#brass)" opacity="0.7"/>
+
+    <!-- Puesta a tierra central (Arco semicircular) -->
+    <g>
+      <path d="M 95,265 h 10 v 5 a 5,5 0 0,1 -10,0 Z" fill="#111311"/>
+      <circle cx="100" cy="265" r="4" fill="#111311"/>
+      <circle cx="100" cy="265" r="2.2" fill="#755a29" opacity="0.65"/>
     </g>
-    <text x="100" y="228" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="5.5" font-weight="600" fill="#9fa796" letter-spacing="1">16A 250V~</text>
+
+    <!-- Marcado técnico discreto estampado -->
+    <text x="100" y="228" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="4.5" font-weight="600" fill="#adb3a6" letter-spacing="0.8" opacity="0.6">16A 250V~</text>
   </g>
 </svg>
