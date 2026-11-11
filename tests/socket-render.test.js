@@ -8,6 +8,7 @@ const siteJs = fs.readFileSync(path.join(root, 'assets/site.js'), 'utf8');
 const storeCss = fs.readFileSync(path.join(root, 'assets/store.css'), 'utf8');
 const stylesCss = fs.readFileSync(path.join(root, 'assets/styles.css'), 'utf8');
 const appJs = fs.readFileSync(path.join(root, 'assets/app.js'), 'utf8');
+const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 
 test('Socket plates render standard 3-module 4x2 layout for 1, 2, and 3 gang outlets', () => {
   // 2-socket plate must have top socket, center spacer, bottom socket for realistic 4x2 proportion
@@ -20,6 +21,10 @@ test('Socket plates render standard 3-module 4x2 layout for 1, 2, and 3 gang out
   assert.ok(
     siteJs.includes('mod-socket') && siteJs.includes('socket-receptacle'),
     'site.js detail plate must render realistic socket-receptacle structure'
+  );
+  assert.ok(
+    indexHtml.includes('socket-receptacle') && indexHtml.includes('hole-universal'),
+    'index.html hero device plate must render realistic socket-receptacle and universal apertures'
   );
 });
 
